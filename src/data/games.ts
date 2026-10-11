@@ -9,6 +9,7 @@ export type Game = {
   playtime: number;
   status: string;
   favorite: boolean;
+  createdAt: string;
 };
 
 const STORAGE_KEY = 'stem-games';
@@ -27,16 +28,18 @@ export function saveGames(games: Game[]): void {
 }
 
 export function addGame(
-  game: Omit<Game, 'id'>
+  game: Omit<Game, 'id' | 'createdAt'>
 ): Game {
   const games = getGames();
 
   const newGame: Game = {
     ...game,
     id: crypto.randomUUID(),
+    createdAt: new Date().toISOString(),
   };
 
   saveGames([...games, newGame]);
+
   return newGame;
 }
 

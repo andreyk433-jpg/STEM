@@ -38,6 +38,9 @@ export default function GameDetailsPage() {
       <p><strong>Оценка:</strong> {game.rating}/10</p>
       <p><strong>Время игры:</strong> {game.playtime} ч.</p>
       <p><strong>Избранное:</strong> {game.favorite ? 'Да' : 'Нет'}</p>
+      <p>
+  Дата добавления: {new Date(game.createdAt).toLocaleDateString('ru-RU')}
+</p>
 
       <p>
         <label>

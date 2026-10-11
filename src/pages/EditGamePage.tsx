@@ -34,16 +34,17 @@ export default function EditGamePage() {
   }
 
   updateGame({
-    id: game.id,
-    title: title.trim(),
-    description,
-    genre: genre.trim(),
-    releaseYear: Number(releaseYear),
-    rating: Number(rating),
-    playtime: Number(playtime),
-    status,
-    favorite,
-  });
+  id: game.id,
+  title: title.trim(),
+  description,
+  genre: genre.trim(),
+  releaseYear: Number(releaseYear),
+  rating: Number(rating),
+  playtime: Number(playtime),
+  status,
+  favorite,
+  createdAt: game.createdAt || new Date().toISOString(),
+});
 
   navigate(`/games/${game.id}`);
 }
