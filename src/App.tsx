@@ -1,5 +1,7 @@
 
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+import Header from './components/Header';
 
 import HomePage from './pages/HomePage';
 import GamesPage from './pages/GamesPage';
@@ -12,31 +14,18 @@ import EditGamePage from './pages/EditGamePage';
 function App() {
   return (
     <BrowserRouter>
-      <header>
-        <h2>STEM</h2>
-
-        <nav>
-          <Link to="/">Главная</Link>{' | '}
-          <Link to="/games">Библиотека</Link>{' | '}
-          <Link to="/games/new">Добавить игру</Link>{' | '}
-          <Link to="/statistics">Статистика</Link>{' | '}
-          <Link to="/top-games">Топ игр</Link>
-        </nav>
-      </header>
-
-      <hr />
+      <Header />
 
       <main>
-<Routes>
-  <Route path="/" element={<HomePage />} />
-  <Route path="/games" element={<GamesPage />} />
-  <Route path="/games/new" element={<AddGamePage />} />
-  <Route path="/games/:id/edit" element={<EditGamePage />} />
-  <Route path="/games/:id" element={<GameDetailsPage />} />
-  <Route path="/statistics" element={<StatisticsPage />} />
-  <Route path="/top-games" element={<TopGamesPage />} />
-</Routes>
-
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/games" element={<GamesPage />} />
+          <Route path="/games/new" element={<AddGamePage />} />
+          <Route path="/games/:id/edit" element={<EditGamePage />} />
+          <Route path="/games/:id" element={<GameDetailsPage />} />
+          <Route path="/statistics" element={<StatisticsPage />} />
+          <Route path="/top-games" element={<TopGamesPage />} />
+        </Routes>
       </main>
     </BrowserRouter>
   );
