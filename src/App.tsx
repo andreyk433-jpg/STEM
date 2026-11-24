@@ -1,7 +1,7 @@
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import Header from './components/Header';
+import Layout from './components/Layout';
 
 import HomePage from './pages/HomePage';
 import GamesPage from './pages/GamesPage';
@@ -10,23 +10,23 @@ import GameDetailsPage from './pages/GameDetailsPage';
 import StatisticsPage from './pages/StatisticsPage';
 import TopGamesPage from './pages/TopGamesPage';
 import EditGamePage from './pages/EditGamePage';
+import NotFoundPage from './pages/NotFoundPage';
 
 function App() {
   return (
     <BrowserRouter>
-      <Header />
-
-      <main>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/games" element={<GamesPage />} />
-          <Route path="/games/new" element={<AddGamePage />} />
-          <Route path="/games/:id/edit" element={<EditGamePage />} />
-          <Route path="/games/:id" element={<GameDetailsPage />} />
-          <Route path="/statistics" element={<StatisticsPage />} />
-          <Route path="/top-games" element={<TopGamesPage />} />
-        </Routes>
-      </main>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<HomePage />} />
+          <Route path="games" element={<GamesPage />} />
+          <Route path="games/new" element={<AddGamePage />} />
+          <Route path="games/:id" element={<GameDetailsPage />} />
+          <Route path="games/:id/edit" element={<EditGamePage />} />
+          <Route path="statistics" element={<StatisticsPage />} />
+          <Route path="top-games" element={<TopGamesPage />} />
+        </Route>
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
     </BrowserRouter>
   );
 }

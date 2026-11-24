@@ -11,7 +11,7 @@ export default function Header() {
         </Link>
 
         <nav className="main-nav">
-          <NavLink to="/">Главная</NavLink>
+          <NavLink to="/" end>Главная</NavLink>
           <NavLink to="/games">Библиотека</NavLink>
           <NavLink to="/games/new">Добавить игру</NavLink>
           <NavLink to="/statistics">Статистика</NavLink>
